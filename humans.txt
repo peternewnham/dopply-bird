@@ -5,9 +5,14 @@ Site: https://ellisonleao.github.io, https://github.com/ellisonleao
 Twitter: @ellisonleao
 Location: Curitiba, Brazil
 
+Developer: Peter Newnham
+Site: https://blarg.co.uk, https://github.com/wrakky
+Twitter: @wrakky
+Location: Swindon, UK
+
 /* SITE */
 
-Last Update: 2014/03/06
+Last Update: 2015/03/12
 Standards: HTML5, CSS3
-Components: MelonJS, jQuery
+Components: MelonJS, jQuery, DopplerJS
 Software: VIM, Photoshop
