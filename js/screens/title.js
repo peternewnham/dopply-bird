@@ -60,15 +60,26 @@ game.TitleScreen = me.ScreenObject.extend({
         // size does not matter, it's just to avoid having a zero size
         // renderable
         this._super(me.Renderable, 'init', [0, 0, 100, 100]);
-        this.text = me.device.touch ? 'Tap to start' : 'PRESS SPACE OR CLICK LEFT MOUSE BUTTON TO START \n\t\t\t\t\t\t\t\t\t\t\tPRESS "M" TO MUTE SOUND';
+        this.text1 = 'Allow access to your microphone';
+        this.text2 = 'Swipe your hand upwards past it to start the game and make the bird fly!';
+        //this.text = me.device.touch ? 'Tap to start' : 'PRESS SPACE OR CLICK LEFT MOUSE BUTTON TO START \n\t\t\t\t\t\t\t\t\t\t\tPRESS "M" TO MUTE SOUND';
         this.font = new me.Font('gamefont', 20, '#000');
       },
       draw: function (renderer) {
         var context = renderer.getContext();
-        var measure = this.font.measureText(context, this.text);
-        var xpos = me.game.viewport.width / 2 - measure.width / 2;
+
+        var text1Measure = this.font.measureText(context, this.text1);
+        var xpos = me.game.viewport.width / 2 - text1Measure.width / 2;
         var ypos = me.game.viewport.height / 2 + 50;
-        this.font.draw(context, this.text, xpos, ypos);
+        this.font.draw(context, this.text1, xpos, ypos);
+
+        var text2Measure = this.font.measureText(context, this.text2);
+        var xpos = me.game.viewport.width / 2 - text2Measure.width / 2;
+        var ypos = me.game.viewport.height / 2 + 75;
+        this.font.draw(context, this.text2, xpos, ypos);
+
+
+
       }
     })), 12);
   },
