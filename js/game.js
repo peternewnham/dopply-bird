@@ -4,7 +4,7 @@ var game = {
     steps: 0,
     start: false,
     newHiScore: false,
-    muted: true,
+    muted: false,
     dopplerThreshold: 15
   },
 

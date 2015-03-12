@@ -11,7 +11,7 @@ game.PlayScreen = me.ScreenObject.extend({
     me.game.reset();
     me.audio.stop("theme");
     if (!game.data.muted) {
-      //me.audio.play("theme", true);
+      me.audio.play("theme", true);
     }
 
     me.input.bindKey(me.input.KEY.SPACE, "fly", true);
