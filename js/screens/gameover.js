@@ -21,18 +21,6 @@ game.GameOverScreen = me.ScreenObject.extend({
     me.input.bindKey(me.input.KEY.SPACE, "enter", false);
     me.input.bindPointer(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
-    game.doppler.callback = function () {
-
-      // simulate space bar key down
-      me.input.triggerKeyEvent(me.input.KEY.ENTER, true);
-
-      // key up after 200ms for next action
-      setTimeout(function () {
-        me.input.triggerKeyEvent(me.input.KEY.ENTER, false);
-      }, 200);
-
-    };
-
     this.handler = me.event.subscribe(me.event.KEYDOWN,
       function (action, keyCode, edge) {
         if (action === "enter") {
@@ -130,7 +118,5 @@ game.GameOverScreen = me.ScreenObject.extend({
     this.ground2 = null;
     this.font = null;
     me.audio.stop("theme");
-
-    game.doppler.callback = null;
   }
 });

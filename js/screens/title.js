@@ -16,18 +16,6 @@ game.TitleScreen = me.ScreenObject.extend({
     me.input.bindKey(me.input.KEY.SPACE, "enter", true);
     me.input.bindPointer(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
-    game.doppler.callback = function() {
-
-      // simulate space bar key down
-      me.input.triggerKeyEvent(me.input.KEY.ENTER, true);
-
-      // key up after 200ms for next action
-      setTimeout(function () {
-        me.input.triggerKeyEvent(me.input.KEY.ENTER, false);
-      }, 200);
-
-    };
-
     this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
       if (action === "enter") {
         me.state.change(me.state.PLAY);
@@ -60,25 +48,16 @@ game.TitleScreen = me.ScreenObject.extend({
         // size does not matter, it's just to avoid having a zero size
         // renderable
         this._super(me.Renderable, 'init', [0, 0, 100, 100]);
-        this.text1 = 'Allow access to your microphone';
-        this.text2 = 'Swipe your hand upwards past it to start the game and make the bird fly!';
-        //this.text = me.device.touch ? 'Tap to start' : 'PRESS SPACE OR CLICK LEFT MOUSE BUTTON TO START \n\t\t\t\t\t\t\t\t\t\t\tPRESS "M" TO MUTE SOUND';
+        this.text = me.device.touch ? 'Tap to start' : 'PRESS SPACE OR CLICK LEFT MOUSE BUTTON TO START \n\t\t\t\t\t\t\t\t\t\t\tPRESS "M" TO MUTE SOUND';
         this.font = new me.Font('gamefont', 20, '#000');
       },
       draw: function (renderer) {
         var context = renderer.getContext();
 
-        var text1Measure = this.font.measureText(context, this.text1);
-        var xpos = me.game.viewport.width / 2 - text1Measure.width / 2;
+        var measure = this.font.measureText(context, this.text);
+        var xpos = me.game.viewport.width / 2 - measure.width / 2;
         var ypos = me.game.viewport.height / 2 + 50;
-        this.font.draw(context, this.text1, xpos, ypos);
-
-        var text2Measure = this.font.measureText(context, this.text2);
-        var xpos = me.game.viewport.width / 2 - text2Measure.width / 2;
-        var ypos = me.game.viewport.height / 2 + 75;
-        this.font.draw(context, this.text2, xpos, ypos);
-
-
+        this.font.draw(context, this.text, xpos, ypos);
 
       }
     })), 12);
