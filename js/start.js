@@ -14,7 +14,34 @@
   var actionPlay = function() {
     btnPlay.removeEventListener('click', actionPlay, true);
     document.body.removeChild(start);
-    game.onload();
+    window.onReady(function () {
+
+      game.onload();
+
+      // Mobile browser hacks
+      if (me.device.isMobile && !navigator.isCocoonJS) {
+        // Prevent the webview from moving on a swipe
+        window.document.addEventListener("touchmove", function (e) {
+          e.preventDefault();
+          window.scroll(0, 0);
+          return false;
+        }, false);
+
+        // Scroll away mobile GUI
+        (function () {
+          window.scrollTo(0, 1);
+          me.video.onresize(null);
+        }).defer();
+
+        me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
+          window.scrollTo(0, 1);
+        });
+
+        // remove fork button
+        document.body.removeChild(document.getElementById('fork'));
+
+      }
+    });
   };
   btnPlay.addEventListener('click', actionPlay, true);
 

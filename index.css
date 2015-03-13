@@ -66,6 +66,7 @@ body {
     color: #444;
     padding: 20px;
     font-family: "Helvetic Neue", Helvetica, Arial;
+    overflow-y: scroll;
 }
 
 #start h1 {
