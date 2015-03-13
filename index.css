@@ -55,3 +55,51 @@ body {
   position: absolute;
   left:23%;
 }
+
+#start {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #fff;
+    color: #444;
+    padding: 20px;
+    font-family: "Helvetic Neue", Helvetica, Arial;
+}
+
+#start h1 {
+    margin: 0 0 20px;
+}
+
+#start h2 {
+    margin: 20px 0 10px;
+}
+
+#start h3, #start p {
+     margin: 10px 0;
+}
+
+#start .alert {
+    background: #ccc;
+    border: 2px solid #333;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#start .alert.waiting {
+    background: #FCF8E3;
+    border-color: #fccf60;
+}
+
+#start .alert.error {
+    background: #F2DEDE;
+    border-color: #f2999d;
+    display: none;
+}
+
+#start .alert.success {
+    background: #DFF0D8;
+    border-color: #6ff067;
+    display: none;
+}

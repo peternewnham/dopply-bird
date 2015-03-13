@@ -115,12 +115,24 @@ window.doppler = (function() {
     });
   };
 
+  var passedStream = null;
+
   return {
+    setStream: function(stream) {
+      passedStream = stream;
+    },
     init: function(callback) {
-      navigator.getUserMedia_ = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
-      navigator.getUserMedia_({ audio: { optional: [{ echoCancellation: false }] } }, function(stream) {
-        handleMic(stream, readMic, callback);
-      }, function() { console.log('Error!') });
+      if (passedStream) {
+        handleMic(passedStream, readMic, callback);
+      }
+      else {
+        navigator.getUserMedia_ = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+        navigator.getUserMedia_({audio: {optional: [{echoCancellation: false}]}}, function (stream) {
+          handleMic(stream, readMic, callback);
+        }, function () {
+          console.log('Error!')
+        });
+      }
     },
     stop: function () {
       clearInterval(readMicInterval);

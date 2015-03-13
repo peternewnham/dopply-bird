@@ -59,15 +59,51 @@
 <!-- Canvas placeholder -->
 <div id="screen"></div>
 
+<div id="start">
+
+    <h1>Dopply Bird</h1>
+
+    <div class="alert waiting" id="start_waiting">Please allow access to your microphone to play Dopply Bird.</div>
+    <div class="alert error" id="start_error">Sorry, you must allow access to your microphone in order to play Dopply Bird.</div>
+    <div class="alert error" id="start_unsupported">Sorry, your browser does not support capturing user media which is required to play Dopply Bird. Please try again using Google Chrome.</div>
+    <div class="alert error" id="start_firefox">Sorry Firefox does not support the echoCancellation parameter for getUserMedia which is required for Dopply Bird to run.</div>
+    <div class="alert success" id="start_success">
+        You can now play Dopply Bird! <button id="start_play">Play Dopply Bird</button>
+    </div>
+
+    <h2>How to play</h2>
+    <p>Move your hand in an upward motion past your microphone to make the bird fly upwards.</p>
+
+    <h2>Device Support</h2>
+    <p>Dopply Bird will only run on Google Chrome (Desktop or Android) dues to limitations in other browsers.</p>
+    <p>
+        If you have trouble with the controls please visit <a href="http://danielrapp.github.io/doppler/">http://danielrapp.github.io/doppler/</a> and try the demos
+        which will give a better indication of how well this game will work for you.
+    </p>
+
+    <h2>Tested Devices</h2>
+    <h3>MacBook Air</h3>
+    <p>
+        Microphone is located on left side of device. Moving your hand from left to right over it works well. As does
+        a down to up motion if the MacBook is on a raised platform.
+    </p>
+    <h3>Nexus 5</h3>
+    <p>
+        Support is a bit flakey. Better results can be achieved by tapping the microphone instead.
+    </p>
+
+</div>
+
 <!-- melonJS Library -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/melonjs/2.0.2/melonJS.js"></script>
 <script type="text/javascript" src="build/doppler.js"></script>
+<script type="text/javascript" src="build/start.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/melonjs/2.0.2/melonJS.js"></script>
 <script type="text/javascript" src="build/clumsy-min.js"></script>
 <!-- Bootstrap & Mobile optimization tricks -->
 <script type="text/javascript">
     window.onReady(function onReady() {
 
-        game.onload();
+        //game.onload();
         // Mobile browser hacks
         if (me.device.isMobile && !navigator.isCocoonJS) {
             // Prevent the webview from moving on a swipe

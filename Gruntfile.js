@@ -22,6 +22,7 @@ module.exports = function(grunt) {
                     'build/clumsy-min.js': [
                         sourceFiles
                     ],
+                    'build/start.js': 'js/start.js',
                     'build/doppler.js': 'libs/doppler.js'
                 }
             }
